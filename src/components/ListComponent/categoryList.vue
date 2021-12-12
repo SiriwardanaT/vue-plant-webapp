@@ -1,31 +1,24 @@
 <template>
-<div class="list" >      
+  <div class="list">
     <b-card
-    title="Category List"
-    img-alt="Category"
-    img-top
-    tag="article"
-    style="max-width:20rem;"
-    class="mb-2"
-  >
-  
-  </b-card>
-    
-    </div>
-  
+      title="Category List"
+      img-alt="Category"
+      img-top
+      tag="article"
+      style="max-width: 20rem"
+      class="mb-2"
+    >
+    </b-card>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-.list{
-    margin-left: 40px;
-    margin-top: 40px;
-   
-    
+.list {
+  margin-left: 40px;
+  margin-top: 40px;
 }
 </style>

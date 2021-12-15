@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in CartList" :key="item.index">
+        <tr v-for="(item,index) in CartList" :key="index">
           <th scope="row">{{ item.Product }}</th>
           <td>
             <b-button
@@ -23,7 +23,7 @@
             <b-button
               squared
               variant="outline-success"
-              :disabled="disabled"
+              :disabled="item.qun === 1 ? true  :false"
               @click="updateQuntity('-', item)"
               >-</b-button
             >
@@ -41,7 +41,6 @@ export default {
   data() {
     return {
       qun: 0,
-      disabled: false,
     };
   },
   props: {
@@ -50,19 +49,21 @@ export default {
     },
   },
   methods: {
+    //increase and decrease quantity
     updateQuntity(mode, value) {
       if (mode === "+") {
         value.qun++;
-        this.disabled = false;
       } else {
-        if (value.qun != 0) {
+        if (value.qun != 1) {
           value.qun--;
         } else {
-          this.disabled = true;
+          // this.disabled = true;
+          console.log("")
         }
       }
       this.$emit("updateQuntity", value);
     },
+
   },
 };
 </script>
@@ -71,5 +72,6 @@ export default {
 .tableContent {
   position: relative;
   width: 100vh;
+  
 }
 </style>

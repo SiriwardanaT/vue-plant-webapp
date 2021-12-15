@@ -2,7 +2,7 @@
   <div>
     <div class="cart_summerybox">
       <b-card-group deck>
-        <b-card header="Checkout" header-tag="header">
+        <b-card header="Order Summery" header-tag="header">
           <b-card-text>
             <b-row> 
               <b-col><h6>Total</h6></b-col>
@@ -27,7 +27,15 @@
               <b-col><p>(1 Item)</p></b-col>
             </b-row>
             <b-row>
-              <b-button href="#" class="btn-check">Checkout</b-button>
+            <b-button
+              squared
+              variant="outline-success"
+              @click="ProceedToPay"
+              >Proceed To Payment ${{total + delivery}}</b-button
+            >
+            </b-row>
+            <b-row>
+               <PaymentMethods />
             </b-row>
           </b-card-text>
         </b-card>
@@ -37,6 +45,7 @@
 </template>
 
 <script>
+import PaymentMethods from '../components/PaymentIcon/IconRaw.vue'
 export default {
   data() {
     return {
@@ -45,13 +54,21 @@ export default {
       delivery: 20,
     };
   },
+  components:{
+    PaymentMethods
+  },
   props: {
     total: {
       type: Number,
       default: null,
     },
   },
-  methods: {},
+  methods: {
+    ProceedToPay(){
+       const subtot = this.total + this.delivery
+       this.$emit("proceedToPay",true,subtot)
+    }
+  },
 };
 </script>
 

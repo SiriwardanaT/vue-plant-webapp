@@ -5,6 +5,7 @@
     <h1>My Cart</h1>
     <b-row  v-if="Subamount != 0">
       <b-col>
+       
         <CartTable :CartList="CartList" @updateQuntity="updateQuntity" />
       </b-col>
       <b-col v-if="!isProcceed">
@@ -57,10 +58,12 @@ export default {
     },
 
     handleCartList() {
-      this.CartList = CartData.cart;
+      this.CartList = JSON.parse(localStorage.getItem('CartList'))
+      //this.CartList = $store.state.CartList;
+      console.log(this.CartList)
     },
     proceedToPay(isProcceed, amount){
-         this.isProcceed = isProcceed
+         this.isProcceed = isProcceed;
          
     },
     handleSubtotal() {

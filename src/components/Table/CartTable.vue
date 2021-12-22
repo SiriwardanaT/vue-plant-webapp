@@ -1,5 +1,6 @@
 <template>
   <div class="tableContent">
+    
     <table class="table">
       <thead>
         <tr>
@@ -11,7 +12,7 @@
       </thead>
       <tbody>
         <tr v-for="(item,index) in CartList" :key="index">
-          <th scope="row">{{ item.Product }}</th>
+          <th scope="row">{{ item.name }}</th>
           <td>
             <b-button
               squared
@@ -28,8 +29,8 @@
               >-</b-button
             >
           </td>
-          <td>{{ item.Amount }}</td>
-          <td>{{ item.Amount * item.qun }}</td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.price * item.qun }}</td>
         </tr>
       </tbody>
     </table>
@@ -63,8 +64,10 @@ export default {
       }
       this.$emit("updateQuntity", value);
     },
+    
 
   },
+
 };
 </script>
 

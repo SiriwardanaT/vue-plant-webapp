@@ -25,14 +25,22 @@
             </b-row>
             <b-row>
               <b-col><p>(1 Item)</p></b-col>
+              <b-col><p>(1 Item)</p></b-col>
             </b-row>
             <b-row>
-            <b-button
+               <b-col>
+                 <b-button
               squared
               variant="outline-success"
               @click="ProceedToPay"
               >Proceed To Payment ${{total + delivery}}</b-button
             >
+               </b-col>
+              <b-col>
+                <!-- shipping address -->
+                <Shippinginformation />
+              </b-col>
+            
             </b-row>
             <b-row>
                <PaymentMethods />
@@ -46,6 +54,7 @@
 
 <script>
 import PaymentMethods from '../components/PaymentIcon/IconRaw.vue'
+import Shippinginformation from '../views/User/ShippingInfo.vue'
 export default {
   data() {
     return {
@@ -55,7 +64,8 @@ export default {
     };
   },
   components:{
-    PaymentMethods
+    PaymentMethods,
+    Shippinginformation
   },
   props: {
     total: {

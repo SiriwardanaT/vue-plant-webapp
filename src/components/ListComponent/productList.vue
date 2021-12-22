@@ -1,5 +1,6 @@
 <template>
   <div class="flex-content">
+   
     <div class="box">
       <div>
         <b-overlay
@@ -20,8 +21,9 @@
             style="max-width: 20rem"
             class="mb-2"
           >
-            <b-card-text> $400 </b-card-text>
-            <b-button @click="cartBtnhandle('hello')" class="btn-cart"
+          
+            <b-card-text> $400</b-card-text>
+            <b-button @click="AddToCart(productseg)" class="btn-cart"
               >Add To Cart</b-button
             >
           </b-card>
@@ -141,12 +143,24 @@ export default {
       show: false,
       imgUrl: imgurls,
       imgUrl2: imgurls2,
+
+
+      productseg:{
+        id:1,
+        name:"dd",
+        qun:1,
+        price:200
+      }
     };
   },
   methods: {
     cartBtnhandle(value) {
       this.show = true;
     },
+
+    AddToCart(product){
+        this.$store.dispatch('ADD_TO_CART',{payload:product})
+    }
   },
 };
 </script>

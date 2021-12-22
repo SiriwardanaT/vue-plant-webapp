@@ -14,6 +14,9 @@ export default {
   components:{
     NavBarSection,
     CategorySider
+  },
+  created(){
+      
   }
    
  

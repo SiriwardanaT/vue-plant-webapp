@@ -51,7 +51,9 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch("UPDATE_CART", { payload: 5 });
+    const currentItemqun = localStorage.getItem('qun');
+    console.log(currentItemqun)
+    this.$store.dispatch("UPDATE_CART", { payload: Number(currentItemqun) });
   },
 };
 </script>

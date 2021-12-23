@@ -51,10 +51,12 @@ export default {
     },
     updateQuntity(value) {
       console.log("welcome");
-      console.log(value);
+      console.log(this.CartList);
+       this.handleSubtotal();
+       this.$store.dispatch('UPDATE_CART_PRODUCT',{"list":this.CartList,"qun":this.quntity})
       //update quntity
       //this.CartList = CartData.updatedCart;
-      this.handleSubtotal();
+      
     },
 
     handleCartList() {
@@ -68,16 +70,20 @@ export default {
     },
     handleSubtotal() {
       this.Subamount = 0;
+      this.quntity = 0;
       let i = 0;
       for (i = 0; i < this.CartList.length; i++) {
-        console.log("helooo" + this.CartList[i].Amount);
-        this.Subamount += this.CartList[i].Amount * this.CartList[i].qun;
+        console.log("helooo" + this.CartList[i].price);
+        this.Subamount += this.CartList[i].price * this.CartList[i].qun;
+        this.quntity += this.CartList[i].qun; 
       }
     },
   },
   created() {
     this.handleCartList();
     this.handleSubtotal();
+    
+
   },
 };
 </script>

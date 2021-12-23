@@ -16,7 +16,7 @@
           <span style="padding-right: 20px"
             ><img :src="CartImgurl" height="40px" alt="" /><b-badge
               variant="success"
-              >{{ $store.state.product }}</b-badge
+              >{{ $store.state.quntity }}</b-badge
             ></span
           >
           <span style="padding-right: 20px"
@@ -51,9 +51,7 @@ export default {
     };
   },
   created() {
-    const currentItemqun = localStorage.getItem('qun');
-    console.log(currentItemqun)
-    this.$store.dispatch("UPDATE_CART", { payload: Number(currentItemqun) });
+    this.$store.dispatch("UPDATE_CART");
   },
 };
 </script>
